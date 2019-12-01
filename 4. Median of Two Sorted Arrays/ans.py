@@ -1,5 +1,5 @@
-nums1 = [1,3]
-nums2 = [2]
+nums1 = [1,3,4,5]
+nums2 = [2,4,5]
 
 def findMedianSortedArrays(nums1, nums2):
     m, n = len(nums1), len(nums2)
