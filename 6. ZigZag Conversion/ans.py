@@ -2,18 +2,17 @@ s = "PAYPALISHIRING"
 numRows = 3
 
 def convert(s, numRows):
-    rows = ["" for _ in range(numRows)]
-    index = 0
-    rowNumber = 0
-    while index < len(s):
-        while rowNumber < numRows and index < len(s):
-            rows[rowNumber] += s[index]
-            rowNumber += 1
-            index += 1
-        rowNumber = max(0, rowNumber - 2)
-        while rowNumber != 0 and index < len(s):
-            rows[rowNumber] += s[index]
-            rowNumber -= 1
-            index += 1
-    return "".join(rows)
+    if numRows == 1: return s
+    rows = ["" for _ in range(min(numRows,len(s)))]
+    curRow = 0
+    goingDown = False
+    for c in s:
+        rows[curRow] += c
+        if curRow == 0 or curRow == numRows - 1:
+            goingDown = not goingDown
+        curRow += 1 if goingDown else -1
+    ret = ""
+    for row in rows:
+        ret += row
+    return ret
 print(convert(s, numRows))
