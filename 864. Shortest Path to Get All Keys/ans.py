@@ -11,6 +11,7 @@ def shortestPathAllKeys(grid):
                 for r, row in enumerate(grid)
                 for c, v in enumerate(row)
                 if v not in '.#'}
+    #print(location)
 
     def neighbors(r, c):
         for cr, cc in ((r-1, c), (r, c-1), (r+1, c), (r, c+1)):
