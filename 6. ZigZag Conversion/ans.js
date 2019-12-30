@@ -10,13 +10,9 @@ var convert = function(s, numRows) {
     for (str of s) {
         if (index == 0 || index == numRows-1) up = !up;
         
-        if (up == false) {
-            container[index] += str;
-            index++;
-        } else {         
-            container[index] += str;
-            index--;
-        }
+        container[index] += str;
+        
+        index += (up == false ? 1 : -1);
     }
     
     return container.join("");
